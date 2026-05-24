@@ -3,10 +3,10 @@ import { useAuthStore } from '@/store/authStore'
 import { Card, Badge } from '@/components/ui'
 
 const STATS = [
-  { label: 'Proyectos activos', value: '0', icon: Building2,  color: 'text-blue-500',    bg: 'bg-blue-50 dark:bg-blue-950'    },
-  { label: 'Obras en curso',    value: '0', icon: HardHat,    color: 'text-violet-500',  bg: 'bg-violet-50 dark:bg-violet-950' },
-  { label: 'Reportes del mes',  value: '0', icon: FileText,   color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-950' },
-  { label: 'Avance promedio',   value: '—', icon: TrendingUp, color: 'text-amber-500',   bg: 'bg-amber-50 dark:bg-amber-950'  },
+  { label: 'Proyectos activos', value: '0', icon: Building2  },
+  { label: 'Obras en curso',    value: '0', icon: HardHat    },
+  { label: 'Reportes del mes',  value: '0', icon: FileText   },
+  { label: 'Avance promedio',   value: '—', icon: TrendingUp },
 ]
 
 const STEPS = [
@@ -35,15 +35,15 @@ export function DashboardPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {STATS.map(({ label, value, icon: Icon, color, bg }) => (
+        {STATS.map(({ label, value, icon: Icon }) => (
           <Card key={label}>
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">{label}</p>
                 <p className="text-3xl font-bold text-slate-900 dark:text-slate-100 mt-1">{value}</p>
               </div>
-              <div className={`p-2.5 rounded-xl shrink-0 ${bg}`}>
-                <Icon className={`h-5 w-5 ${color}`} />
+              <div className="p-2.5 rounded-xl shrink-0 bg-brand-50 dark:bg-brand-950">
+                <Icon className="h-5 w-5 text-brand-600 dark:text-brand-400" />
               </div>
             </div>
           </Card>

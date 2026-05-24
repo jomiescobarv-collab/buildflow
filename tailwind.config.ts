@@ -6,18 +6,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Azul acero oscuro — metálico, profundo, desaturado
         brand: {
-          50:  '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
+          50:  '#f0f3ff',
+          100: '#dde4ff',
+          200: '#beccff',
+          300: '#91a8fd',
+          400: '#5e7bf8',
+          500: '#3555f0',
+          600: '#1f3dd6',  // botones / estado activo — azul acero
+          700: '#1630b0',  // hover — marino profundo
+          800: '#122690',
+          900: '#0f1c6e',
+          950: '#090f45',
         },
       },
       fontFamily: {
