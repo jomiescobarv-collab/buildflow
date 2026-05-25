@@ -20,16 +20,24 @@ export function LoginPage() {
   } = useForm<LoginFormData>({ resolver: zodResolver(loginSchema) })
 
   const onSubmit = async (data: LoginFormData) => {
-    const { data: authData, error } = await supabase.auth.signInWithPassword({
-      email: data.email,
-      password: data.password,
-    })
-    if (error) { addToast({ type: 'error', message: error.message }); return }
-    if (authData.user) {
-      setUser(authData.user)
-      await loadUserData(authData.user.id)
-      useAuthStore.setState({ isLoading: false, initialized: true })
-      navigate('/dashboard')
+    try {
+      const { data: authData, error } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
+      })
+      if (error) {
+        addToast({ type: 'error', message: error.message })
+        return
+      }
+      if (authData.user) {
+        setUser(authData.user)
+        await loadUserData(authData.user.id)
+        useAuthStore.setState({ isLoading: false, initialized: true })
+        navigate('/dashboard')
+      }
+    } catch (err) {
+      addToast({ type: 'error', message: 'Error de conexión. Intenta nuevamente.' })
+      console.error('Login error:', err)
     }
   }
 
