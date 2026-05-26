@@ -18,7 +18,7 @@ const STEPS = [
 
 export function DashboardPage() {
   const { profile, tenant } = useAuthStore()
-  const firstName = profile?.full_name?.split(' ')[0] ?? 'usuario'
+  const firstName = profile?.nombre?.split(' ')[0] ?? profile?.full_name?.split(' ')[0] ?? 'usuario'
   const doneCount = STEPS.filter((s) => s.done).length
 
   return (
@@ -26,7 +26,7 @@ export function DashboardPage() {
       {/* Encabezado */}
       <div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-          Hello, {firstName}
+          Hola, {firstName}
         </h1>
         <p className="text-slate-500 dark:text-slate-400 mt-0.5 text-sm">
           {tenant?.name} · Panel de control

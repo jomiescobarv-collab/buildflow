@@ -12,6 +12,7 @@ export interface Tenant {
 export interface Profile {
   id: string
   tenant_id: string
+  nombre: string | null
   full_name: string | null
   role: 'owner' | 'admin' | 'member'
   avatar_url: string | null
